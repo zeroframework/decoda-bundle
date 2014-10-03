@@ -22,7 +22,10 @@ class decodaBundle
 
         $container->decoda = $container->share(function($c)
         {
-           $instance = new \Decoda\Decoda();
+           $instance = new \Decoda\Decoda("", array(
+                'lineBreaks' => false,
+                'escapeHtml' => false
+            ));
 
            if($c->has("twig")) $instance->setEngine($c["decodatwigengine"]);
 
